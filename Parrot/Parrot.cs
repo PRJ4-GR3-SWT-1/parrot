@@ -33,43 +33,4 @@ namespace Parrot
             return 12.0;
         }
     }
-
-    public class AfricanParrot : Parrot
-    {
-        public AfricanParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts, voltage,
-            isNailed)
-        {
-        }
-
-        public override double GetSpeed()
-        {
-            return Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
-        }
-    }
-
-    public class EuropeanParrot : Parrot
-    {
-        public EuropeanParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts, voltage,
-            isNailed)
-        {
-        }
-
-        public override double GetSpeed()
-        {
-            return GetBaseSpeed();
-        }
-    }
-
-    public class NorwegianBlueParrot : Parrot
-    {
-        public NorwegianBlueParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts,
-            voltage, isNailed)
-        {
-        }
-
-        public override double GetSpeed()
-        {
-            return _isNailed ? 0 : GetBaseSpeed(_voltage);
-        }
-    }
 }
