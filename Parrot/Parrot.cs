@@ -15,7 +15,10 @@ namespace Parrot
             _isNailed = isNailed;
         }
 
-        public abstract double GetSpeed();
+        public virtual double GetSpeed()
+        {
+            throw new NotImplementedException();
+        }
 
 
         protected double GetBaseSpeed(double voltage)

@@ -12,4 +12,5 @@
             return _isNailed ? 0 : GetBaseSpeed(_voltage);
         }
     }
+    
 }
