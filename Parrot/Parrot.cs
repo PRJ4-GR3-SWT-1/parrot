@@ -8,7 +8,7 @@ namespace Parrot
         protected readonly int _numberOfCoconuts;
         protected readonly double _voltage;
 
-        public Parrot( int numberOfCoconuts, double voltage, bool isNailed)
+        protected Parrot(int numberOfCoconuts, double voltage, bool isNailed)
         {
             _numberOfCoconuts = numberOfCoconuts;
             _voltage = voltage;
@@ -16,7 +16,7 @@ namespace Parrot
         }
 
         public abstract double GetSpeed();
-        
+
 
         protected double GetBaseSpeed(double voltage)
         {
@@ -34,33 +34,42 @@ namespace Parrot
         }
     }
 
-    public class AfricanParrot : Parrot 
+    public class AfricanParrot : Parrot
     {
-        public AfricanParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts, voltage, isNailed) { }
+        public AfricanParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts, voltage,
+            isNailed)
+        {
+        }
 
         public override double GetSpeed()
         {
-            return Math.Max(0, base.GetBaseSpeed() - GetLoadFactor() * base._numberOfCoconuts);
+            return Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
         }
     }
 
-   public class EuropeanParrot : Parrot
+    public class EuropeanParrot : Parrot
     {
-        public EuropeanParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts, voltage, isNailed) { }
+        public EuropeanParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts, voltage,
+            isNailed)
+        {
+        }
 
         public override double GetSpeed()
         {
-            return base.GetBaseSpeed();
+            return GetBaseSpeed();
         }
     }
 
     public class NorwegianBlueParrot : Parrot
     {
-        public NorwegianBlueParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts, voltage, isNailed) { }
+        public NorwegianBlueParrot(int numberOfCoconuts, double voltage, bool isNailed) : base(numberOfCoconuts,
+            voltage, isNailed)
+        {
+        }
 
         public override double GetSpeed()
         {
-            return base._isNailed ? 0 : base.GetBaseSpeed(base._voltage);
+            return _isNailed ? 0 : GetBaseSpeed(_voltage);
         }
     }
 }
