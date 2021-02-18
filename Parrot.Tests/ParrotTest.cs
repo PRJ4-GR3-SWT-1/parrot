@@ -1,7 +1,7 @@
 using Xunit;
 
 namespace Parrot.Tests
-{
+{ 
     public class ParrotTest
     {
         [Fact]
