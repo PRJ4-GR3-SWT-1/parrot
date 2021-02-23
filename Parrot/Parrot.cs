@@ -4,16 +4,6 @@ namespace Parrot
 {
     public abstract class Parrot
     {
-        protected readonly bool _isNailed;
-        protected readonly int _numberOfCoconuts;
-        protected readonly double _voltage;
-
-        protected Parrot(int numberOfCoconuts, double voltage, bool isNailed)
-        {
-            _numberOfCoconuts = numberOfCoconuts;
-            _voltage = voltage;
-            _isNailed = isNailed;
-        }
 
         public virtual double GetSpeed()
         {
@@ -21,10 +11,7 @@ namespace Parrot
         }
 
 
-        protected double GetBaseSpeed(double voltage)
-        {
-            return Math.Min(24.0, voltage * GetBaseSpeed());
-        }
+        
 
         protected double GetLoadFactor()
         {
